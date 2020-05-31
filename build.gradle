@@ -30,6 +30,19 @@ allprojects {
     repositories {
         google()
         jcenter()
+        def githubUser = System.getenv("GITHUB_USER")
+        def githubToken = System.getenv("GITHUB_TOKEN")
+        if (githubUser != null && githubToken != null) {
+            maven {
+                url "https://maven.pkg.github.com/MeilCli/Librarian"
+                credentials {
+                    username githubUser
+                    password githubToken
+                }
+            }
+        } else {
+            maven { url "https://dl.bintray.com/meilcli/librarian" }
+        }
     }
 }
 
