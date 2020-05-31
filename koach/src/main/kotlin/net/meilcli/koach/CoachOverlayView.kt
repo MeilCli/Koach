@@ -83,7 +83,7 @@ class CoachOverlayView(
                 lastTouchY != null &&
                 targetViewSpec.rect.contains(lastTouchX.toInt(), lastTouchY.toInt())
             ) {
-                targetViewSpec.invokeClick()
+                targetViewSpec.invokeClick(lastTouchX, lastTouchY)
             }
             coach.overlay.clickListener.click(coach, coachScene)
         }
