@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'AndroidApplicationPlugin' // this is define at buildSrc
+
+apply plugin: 'librarian'
+apply plugin: 'librarian-preset'
+
+dependencies {
+    implementation project(':koach')
+}
+
+librarian {
+    pages {
+        "app" {
+            title = "Using Libraries"
+            description = "app is using this libraries."
+            configurations {
+                contain {
+                    value = [
+                            "implementationDependenciesMetadata",
+                            "releaseImplementationDependenciesMetadata",
+                            "releaseRuntimeClasspath" // for child module
+                    ]
+                }
+            }
+        }
+    }
+}

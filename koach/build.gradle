@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'AndroidLibraryPlugin'
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'MavenPublishPlugin'
+
+apply plugin: 'librarian'
+apply plugin: 'librarian-preset'
+
+librarian {
+    pages {
+        "koach-usings-library" {
+            title = "Koach koach's using libraries"
+            description = "This list is including library binary"
+            configurations {
+                contain {
+                    value = [
+                            "implementationDependenciesMetadata",
+                            "apiDependenciesMetadata"
+                    ]
+                }
+            }
+        }
+        "koach-usings-development" {
+            title = "Koach koach's using libraries"
+            description = "This list is using development of Koach"
+            configurations {
+                contain {
+                    value = [
+                            "testImplementationDependenciesMetadata",
+                            "androidTestImplementationDependenciesMetadata",
+                            "classpath"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+import net.meilcli.koach.gradle.Dependencies
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        def githubUser = System.getenv("GITHUB_USER")
+        def githubToken = System.getenv("GITHUB_TOKEN")
+        if (githubUser != null && githubToken != null) {
+            maven {
+                url "https://maven.pkg.github.com/MeilCli/Librarian"
+                credentials {
+                    username githubUser
+                    password githubToken
+                }
+            }
+        } else {
+            maven { url "https://dl.bintray.com/meilcli/librarian" }
+        }
+    }
+    dependencies {
+        classpath Dependencies.Android.gradle
+        classpath Dependencies.Kotlin.gradle
+        classpath Dependencies.Librarian.pluginCore
+        classpath Dependencies.Librarian.pluginPreset
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

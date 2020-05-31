@@ -1,0 +1,3 @@
+rootProject.name='Koach'
+include ':app'
+include ':koach'
