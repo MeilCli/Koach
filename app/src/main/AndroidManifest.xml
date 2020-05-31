@@ -22,6 +22,7 @@
         <activity android:name=".AnchorActivity" />
         <activity android:name=".AnimationActivity" />
         <activity android:name=".ClickTargetActivity" />
+        <activity android:name=".ViewGroupActivity" />
     </application>
 
 </manifest>

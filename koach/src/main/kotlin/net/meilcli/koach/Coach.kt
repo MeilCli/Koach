@@ -9,6 +9,9 @@ import android.view.ViewTreeObserver
 import android.view.Window
 import androidx.annotation.ColorInt
 
+/**
+ * [viewGroup] should be layout that stacks like layers, such as FrameLayout
+ */
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 class Coach(
     private val viewGroup: ViewGroup,
@@ -16,6 +19,9 @@ class Coach(
     internal val overlay: CoachOverlay
 ) {
 
+    /**
+     * [viewGroup] should be layout that stacks like layers, such as FrameLayout
+     */
     class Creator(
         private val viewGroup: ViewGroup,
         private val overlay: CoachOverlay
@@ -51,6 +57,9 @@ class Coach(
         @ColorInt
         private val defaultOverlayColor = Color.parseColor("#D0000000")
 
+        /**
+         * [viewGroup] should be layout that stacks like layers, such as FrameLayout
+         */
         fun create(
             viewGroup: ViewGroup,
             overlay: CoachOverlay,

@@ -12,6 +12,6 @@ class IdViewFinder(
 
     override fun find(parent: ViewGroup): ViewSpec? {
         val targetView = parent.findViewById<View>(id) ?: return null
-        return ViewSpec.getSpec(targetView)
+        return ViewSpec.getSpec(parent, targetView)
     }
 }

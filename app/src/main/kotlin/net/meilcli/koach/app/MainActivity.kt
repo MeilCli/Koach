@@ -20,5 +20,8 @@ class MainActivity : AppCompatActivity() {
         clickTarget.setOnClickListener {
             startActivity(Intent(this, ClickTargetActivity::class.java))
         }
+        viewGroup.setOnClickListener {
+            startActivity(Intent(this, ViewGroupActivity::class.java))
+        }
     }
 }
