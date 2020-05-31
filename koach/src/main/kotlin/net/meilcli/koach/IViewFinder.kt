@@ -5,5 +5,5 @@ import android.view.ViewGroup
 
 interface IViewFinder {
 
-    fun find(parent: ViewGroup): View?
+    fun find(parent: ViewGroup): ViewSpec?
 }

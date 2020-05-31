@@ -4,12 +4,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
 import net.meilcli.koach.IViewFinder
+import net.meilcli.koach.ViewSpec
 
 class IdViewFinder(
     @IdRes private val id: Int
 ) : IViewFinder {
 
-    override fun find(parent: ViewGroup): View? {
-        return parent.findViewById(id)
+    override fun find(parent: ViewGroup): ViewSpec? {
+        val targetView = parent.findViewById<View>(id) ?: return null
+        return ViewSpec.getSpec(targetView)
     }
 }

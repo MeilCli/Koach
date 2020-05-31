@@ -5,7 +5,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import androidx.annotation.Px
 import net.meilcli.koach.IOverlayShape
-import net.meilcli.koach.TargetViewSpec
+import net.meilcli.koach.ViewSpec
 
 class RectOverlayShape(
     @Px private val marginTop: Int,
@@ -20,7 +20,7 @@ class RectOverlayShape(
         @Px radius: Int
     ) : this(margin, margin, margin, margin, radius)
 
-    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: TargetViewSpec) {
+    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec) {
         val targetRect = targetViewSpec.rect
         val rect = RectF(
             targetRect.left.toFloat() - marginLeft,

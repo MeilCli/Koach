@@ -60,7 +60,7 @@ class CoachOverlayView(
     }
 
     private var coachScene: CoachScene? = null
-    private var targetViewSpec: TargetViewSpec = TargetViewSpec.empty
+    private var targetViewSpec: ViewSpec = ViewSpec.empty
     private var shapeAnimator: ValueAnimator? = null
 
     init {
@@ -71,7 +71,7 @@ class CoachOverlayView(
         }
     }
 
-    fun setScene(coachScene: CoachScene, targetViewSpec: TargetViewSpec) {
+    fun setScene(coachScene: CoachScene, targetViewSpec: ViewSpec) {
         this.coachScene = coachScene
         this.targetViewSpec = targetViewSpec
 

@@ -44,5 +44,5 @@ interface IAnimationOverlayShape : IOverlayShape {
     /**
      * [value] will be range of [0, 1]
      */
-    fun draw(canvas: Canvas, paint: Paint, targetViewSpec: TargetViewSpec, value: Float)
+    fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec, value: Float)
 }

@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Px
 import net.meilcli.koach.ICoachSceneLayout
-import net.meilcli.koach.TargetViewSpec
+import net.meilcli.koach.ViewSpec
 import kotlin.math.max
 
 @SuppressLint("ViewConstructor", "RtlHardcoded")
 class AnchorCoachSceneLayout(
     context: Context,
-    private val targetViewSpec: TargetViewSpec,
+    private val targetViewSpec: ViewSpec,
     private val targetAnchorGravity: Int,
     private val gravity: Int,
     @Px

@@ -5,7 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.Px
 import net.meilcli.koach.IAnimationOverlayShape
-import net.meilcli.koach.TargetViewSpec
+import net.meilcli.koach.ViewSpec
 import kotlin.math.max
 
 class CircleAnimationOverlayShape(
@@ -18,11 +18,11 @@ class CircleAnimationOverlayShape(
     override val animations: IAnimationOverlayShape.IAnimations = IAnimationOverlayShape.IAnimations.expand
 ) : IAnimationOverlayShape {
 
-    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: TargetViewSpec) {
+    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec) {
         draw(canvas, paint, targetViewSpec, 0f)
     }
 
-    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: TargetViewSpec, value: Float) {
+    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec, value: Float) {
         val targetRect = targetViewSpec.rect
         val radius = max(
             targetRect.width(),

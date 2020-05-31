@@ -5,5 +5,5 @@ import android.graphics.Paint
 
 interface IOverlayShape {
 
-    fun draw(canvas: Canvas, paint: Paint, targetViewSpec: TargetViewSpec)
+    fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec)
 }

@@ -17,7 +17,7 @@ class CoachLayout(context: Context, coach: Coach) : FrameLayout(context) {
         addView(overlayView)
     }
 
-    fun replaceScene(coachScene: CoachScene, targetViewSpec: TargetViewSpec) {
+    fun replaceScene(coachScene: CoachScene, targetViewSpec: ViewSpec) {
         if (currentCoachScene != null && currentCoachSceneLayout != null) {
             val layout = currentCoachSceneLayout as? ViewGroup
             if (layout != null) {

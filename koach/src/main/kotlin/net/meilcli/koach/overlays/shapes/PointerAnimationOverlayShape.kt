@@ -5,7 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.Px
 import net.meilcli.koach.IAnimationOverlayShape
-import net.meilcli.koach.TargetViewSpec
+import net.meilcli.koach.ViewSpec
 
 class PointerAnimationOverlayShape(
     @Px private val animationRadius: Int,
@@ -16,11 +16,11 @@ class PointerAnimationOverlayShape(
     override val animations: IAnimationOverlayShape.IAnimations = IAnimationOverlayShape.IAnimations.contract
 ) : IAnimationOverlayShape {
 
-    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: TargetViewSpec) {
+    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec) {
         draw(canvas, paint, targetViewSpec, 1f)
     }
 
-    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: TargetViewSpec, value: Float) {
+    override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec, value: Float) {
         val targetRect = targetViewSpec.rect
         val radius = animationRadius * value
         canvas.drawCircle(targetRect.exactCenterX(), targetRect.exactCenterY(), radius, paint)

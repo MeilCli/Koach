@@ -1,17 +1,16 @@
 package net.meilcli.koach
 
-import android.graphics.Point
 import android.graphics.Rect
 import android.view.View
 
-data class TargetViewSpec(
+data class ViewSpec(
     val rect: Rect
 ) {
     companion object {
 
-        val empty = TargetViewSpec(Rect(0, 0, 0, 0))
+        val empty = ViewSpec(Rect(0, 0, 0, 0))
 
-        fun getSpec(view: View): TargetViewSpec {
+        fun getSpec(view: View): ViewSpec {
             val location = IntArray(2)
             view.getLocationInWindow(location)
             val left = location[0]
@@ -21,7 +20,7 @@ data class TargetViewSpec(
 
             val rect = Rect(left, top, left + width, top + height)
 
-            return TargetViewSpec(rect)
+            return ViewSpec(rect)
         }
     }
 }

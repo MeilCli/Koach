@@ -4,5 +4,5 @@ import android.content.Context
 
 interface ICoachSceneLayoutProvider {
 
-    fun provide(context: Context, targetViewSpec: TargetViewSpec): ICoachSceneLayout
+    fun provide(context: Context, targetViewSpec: ViewSpec): ICoachSceneLayout
 }

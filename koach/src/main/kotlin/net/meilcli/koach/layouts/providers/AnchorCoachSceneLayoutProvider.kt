@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.annotation.Px
 import net.meilcli.koach.ICoachSceneLayout
 import net.meilcli.koach.ICoachSceneLayoutProvider
-import net.meilcli.koach.TargetViewSpec
+import net.meilcli.koach.ViewSpec
 import net.meilcli.koach.layouts.AnchorCoachSceneLayout
 
 class AnchorCoachSceneLayoutProvider(
@@ -16,7 +16,7 @@ class AnchorCoachSceneLayoutProvider(
     private val marginHorizontal: Int = 0
 ) : ICoachSceneLayoutProvider {
 
-    override fun provide(context: Context, targetViewSpec: TargetViewSpec): ICoachSceneLayout {
+    override fun provide(context: Context, targetViewSpec: ViewSpec): ICoachSceneLayout {
         return AnchorCoachSceneLayout(
             context,
             targetViewSpec,

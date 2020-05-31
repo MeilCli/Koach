@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.view.Window
 import androidx.annotation.ColorInt
-import net.meilcli.koach.overlays.clicks.NextSceneOverlayClickListener
 
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 class Coach(
@@ -118,8 +117,7 @@ class Coach(
     }
 
     private fun showScene(coachScene: CoachScene): Boolean {
-        val target = coachScene.targetViewFinder.find(viewGroup) ?: return false
-        val targetViewSpec = TargetViewSpec.getSpec(target)
+        val targetViewSpec = coachScene.targetViewFinder.find(viewGroup) ?: return false
         coachLayout.replaceScene(coachScene, targetViewSpec)
         return true
     }
