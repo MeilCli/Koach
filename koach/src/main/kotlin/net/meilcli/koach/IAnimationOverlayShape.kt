@@ -6,8 +6,23 @@ import android.graphics.Paint
 
 interface IAnimationOverlayShape : IOverlayShape {
 
-    enum class Type {
-        Expand, Contract
+    interface IAnimations {
+
+        companion object {
+
+            val expand = object : IAnimations {
+                override val values = floatArrayOf(0f, 1f)
+            }
+
+            val contract = object : IAnimations {
+                override val values = floatArrayOf(1f, 0f)
+            }
+        }
+
+        /**
+         * values will be range of [0f, 1f]
+         */
+        val values: FloatArray
     }
 
     val duration: Long
@@ -24,7 +39,7 @@ interface IAnimationOverlayShape : IOverlayShape {
      */
     val repeatMode: Int?
 
-    val type: Type
+    val animations: IAnimations
 
     /**
      * [value] will be range of [0, 1]

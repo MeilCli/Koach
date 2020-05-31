@@ -13,7 +13,7 @@ class PointerAnimationOverlayShape(
     override val interpolator: TimeInterpolator,
     override val repeatCount: Int = 0,
     override val repeatMode: Int? = null,
-    override val type: IAnimationOverlayShape.Type = IAnimationOverlayShape.Type.Contract
+    override val animations: IAnimationOverlayShape.IAnimations = IAnimationOverlayShape.IAnimations.contract
 ) : IAnimationOverlayShape {
 
     override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: TargetViewSpec) {

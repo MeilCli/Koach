@@ -79,11 +79,7 @@ class CoachOverlayView(
 
         val overlayShape = coachScene.overlayShape
         if (overlayShape is IAnimationOverlayShape) {
-            val values = when (overlayShape.type) {
-                IAnimationOverlayShape.Type.Expand -> floatArrayOf(0f, 1f)
-                IAnimationOverlayShape.Type.Contract -> floatArrayOf(1f, 0f)
-            }
-            shapeAnimator = ValueAnimator.ofFloat(*values).apply {
+            shapeAnimator = ValueAnimator.ofFloat(*(overlayShape.animations.values)).apply {
                 duration = overlayShape.duration
                 interpolator = overlayShape.interpolator
                 repeatCount = overlayShape.repeatCount
