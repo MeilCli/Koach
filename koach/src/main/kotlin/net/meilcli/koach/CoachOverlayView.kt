@@ -59,14 +59,32 @@ class CoachOverlayView(
         xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
     }
 
+    private var lastTouchX: Float? = null
+    private var lastTouchY: Float? = null
+
     private var coachScene: CoachScene? = null
     private var targetViewSpec: ViewSpec = ViewSpec.empty
     private var shapeAnimator: ValueAnimator? = null
 
     init {
         setLayerType(LAYER_TYPE_HARDWARE, null)
+        setOnTouchListener { _, event ->
+            lastTouchX = event.x
+            lastTouchY = event.y
+            false
+        }
         setOnClickListener {
             val coachScene = coachScene ?: return@setOnClickListener
+            val lastTouchX = lastTouchX
+            val lastTouchY = lastTouchY
+
+            if (coach.overlay.canClickTargetView &&
+                lastTouchX != null &&
+                lastTouchY != null &&
+                targetViewSpec.rect.contains(lastTouchX.toInt(), lastTouchY.toInt())
+            ) {
+                targetViewSpec.invokeClick()
+            }
             coach.overlay.clickListener.click(coach, coachScene)
         }
     }

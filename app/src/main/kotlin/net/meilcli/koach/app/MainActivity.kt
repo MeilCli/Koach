@@ -17,5 +17,8 @@ class MainActivity : AppCompatActivity() {
         animation.setOnClickListener {
             startActivity(Intent(this, AnimationActivity::class.java))
         }
+        clickTarget.setOnClickListener {
+            startActivity(Intent(this, ClickTargetActivity::class.java))
+        }
     }
 }

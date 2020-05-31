@@ -4,11 +4,12 @@ import android.graphics.Rect
 import android.view.View
 
 data class ViewSpec(
-    val rect: Rect
+    val rect: Rect,
+    val invokeClick: () -> Unit
 ) {
     companion object {
 
-        val empty = ViewSpec(Rect(0, 0, 0, 0))
+        val empty = ViewSpec(Rect(0, 0, 0, 0)) {}
 
         fun getSpec(view: View): ViewSpec {
             val location = IntArray(2)
@@ -20,7 +21,7 @@ data class ViewSpec(
 
             val rect = Rect(left, top, left + width, top + height)
 
-            return ViewSpec(rect)
+            return ViewSpec(rect) { view.performClick() }
         }
     }
 }

@@ -21,6 +21,7 @@
 
         <activity android:name=".AnchorActivity" />
         <activity android:name=".AnimationActivity" />
+        <activity android:name=".ClickTargetActivity" />
     </application>
 
 </manifest>

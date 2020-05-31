@@ -9,7 +9,8 @@ class CoachOverlay(
     internal val clickListener: IOverlayClickListener = NextSceneOverlayClickListener,
     internal val animatedListener: IOverlayAnimatedListener = EmptyOverlayAnimatedListener,
     @ColorInt
-    internal val color: Int = defaultOverlayColor
+    internal val color: Int = defaultOverlayColor,
+    internal val canClickTargetView: Boolean = false
 ) {
 
     companion object {

@@ -5,29 +5,22 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:ignore="HardcodedText">
 
     <Button
-        android:id="@+id/anchor"
+        android:id="@+id/showToast"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Anchor Sample" />
+        android:text="Show Toast" />
 
     <Button
-        android:id="@+id/animation"
+        android:id="@+id/showCoach"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Animation Sample" />
-
-    <Button
-        android:id="@+id/clickTarget"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Click Target Sample" />
+        android:text="Show Coach" />
 </LinearLayout>
