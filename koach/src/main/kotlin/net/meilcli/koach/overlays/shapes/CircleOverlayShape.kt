@@ -13,7 +13,7 @@ class CircleOverlayShape(
 
     override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec) {
         val targetRect = targetViewSpec.rect
-        val radius = max(targetRect.width(), targetRect.height()).toFloat() + margin
+        val radius = max(targetRect.width(), targetRect.height()) / 2f + margin
         canvas.drawCircle(targetRect.exactCenterX(), targetRect.exactCenterY(), radius, paint)
     }
 }

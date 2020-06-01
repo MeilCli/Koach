@@ -27,7 +27,7 @@ class CircleAnimationOverlayShape(
         val radius = max(
             targetRect.width(),
             targetRect.height()
-        ).toFloat() + margin + animationRadius * value
+        ).toFloat() / 2f + margin + animationRadius * value
         canvas.drawCircle(targetRect.exactCenterX(), targetRect.exactCenterY(), radius, paint)
     }
 }
