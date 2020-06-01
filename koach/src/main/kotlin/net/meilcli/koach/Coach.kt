@@ -103,6 +103,10 @@ class Coach(
         overlay: CoachOverlay
     ) : this(activity.window, scenes, overlay)
 
+    fun isShowing(): Boolean {
+        return isShown
+    }
+
     fun show() {
         if (isShown || scenes.isEmpty()) {
             return
