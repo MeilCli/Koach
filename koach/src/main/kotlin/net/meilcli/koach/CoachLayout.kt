@@ -33,7 +33,7 @@ class CoachLayout(context: Context, coach: Coach) : FrameLayout(context) {
         }
         addView(coachSceneLayout)
 
-        val coachView = coachScene.coachViewProvider.provide(context)
+        val coachView = coachScene.coachViewProvider.provide(context, coachSceneLayout)
         coachSceneLayout.addCoachView(coachView)
 
         overlayView.setScene(coachScene, targetViewSpec)

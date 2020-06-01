@@ -5,5 +5,5 @@ import android.view.View
 
 interface IViewProvider {
 
-    fun provide(context: Context): View
+    fun provide(context: Context, layout: ICoachSceneLayout): View
 }

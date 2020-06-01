@@ -2,6 +2,7 @@ package net.meilcli.koach.views.providers
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.Px
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.AppCompatTextView
+import net.meilcli.koach.ICoachSceneLayout
 import net.meilcli.koach.IViewProvider
 
 @SuppressLint("RtlHardcoded")
@@ -23,12 +25,17 @@ class TextViewProvider(
     private val gravity: Int = Gravity.LEFT or Gravity.TOP
 ) : IViewProvider {
 
-    override fun provide(context: Context): View {
+    override fun provide(context: Context, layout: ICoachSceneLayout): View {
         return AppCompatTextView(context).apply {
             text = this@TextViewProvider.text
             gravity = this@TextViewProvider.gravity
             if (textAppearance != null) {
-                setTextAppearance(context, textAppearance)
+                if (Build.VERSION_CODES.M <= Build.VERSION.SDK_INT) {
+                    setTextAppearance(textAppearance)
+                } else {
+                    @Suppress("DEPRECATION")
+                    setTextAppearance(context, textAppearance)
+                }
             }
             if (textColor != null) {
                 setTextColor(textColor)
