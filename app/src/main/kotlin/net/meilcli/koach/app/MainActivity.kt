@@ -29,5 +29,8 @@ class MainActivity : AppCompatActivity() {
         viewGroup.setOnClickListener {
             startActivity(Intent(this, ViewGroupActivity::class.java))
         }
+        coachView.setOnClickListener {
+            startActivity(Intent(this, CoachViewActivity::class.java))
+        }
     }
 }

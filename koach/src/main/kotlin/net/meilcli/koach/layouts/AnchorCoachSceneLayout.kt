@@ -10,6 +10,7 @@ import androidx.annotation.Px
 import net.meilcli.koach.ICoachSceneLayout
 import net.meilcli.koach.ViewSpec
 import kotlin.math.max
+import kotlin.math.min
 
 @SuppressLint("ViewConstructor", "RtlHardcoded")
 class AnchorCoachSceneLayout(
@@ -29,11 +30,7 @@ class AnchorCoachSceneLayout(
     }
 
     override fun addCoachView(view: View) {
-        val layoutParams = LayoutParams(
-            LayoutParams.WRAP_CONTENT,
-            LayoutParams.WRAP_CONTENT
-        )
-        addView(view, layoutParams)
+        addView(view)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -55,7 +52,7 @@ class AnchorCoachSceneLayout(
                 continue
             }
 
-            val childWidth = calculateMeasureSize(
+            val childMaxWidth = calculateMeasureMaxSize(
                 targetViewSpec.rect.left,
                 targetViewSpec.rect.right,
                 width,
@@ -63,7 +60,7 @@ class AnchorCoachSceneLayout(
                 convertRelativeHorizontalGravity(gravity),
                 convertRelativeHorizontalGravity(anchorGravity)
             )
-            val childHeight = calculateMeasureSize(
+            val childMaxHeight = calculateMeasureMaxSize(
                 targetViewSpec.rect.top,
                 targetViewSpec.rect.bottom,
                 height,
@@ -73,8 +70,16 @@ class AnchorCoachSceneLayout(
             )
 
             child.measure(
-                MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.AT_MOST),
-                MeasureSpec.makeMeasureSpec(childHeight, MeasureSpec.AT_MOST)
+                calculateMeasureSpec(
+                    widthMeasureSpec,
+                    childMaxWidth,
+                    child.layoutParams?.width ?: LayoutParams.WRAP_CONTENT
+                ),
+                calculateMeasureSpec(
+                    heightMeasureSpec,
+                    childMaxHeight,
+                    child?.layoutParams?.height ?: LayoutParams.WRAP_CONTENT
+                )
             )
         }
     }
@@ -142,7 +147,7 @@ class AnchorCoachSceneLayout(
         }
     }
 
-    private fun calculateMeasureSize(
+    private fun calculateMeasureMaxSize(
         anchorStart: Int,
         anchorEnd: Int,
         size: Int,
@@ -165,6 +170,61 @@ class AnchorCoachSceneLayout(
             },
             0
         )
+    }
+
+    private fun calculateMeasureSpec(
+        measureSpec: Int,
+        maxSize: Int,
+        layoutParameterSize: Int
+    ): Int {
+        val parentMode = MeasureSpec.getMode(measureSpec)
+        val size: Int
+        val mode: Int
+        when (parentMode) {
+            MeasureSpec.AT_MOST -> when (layoutParameterSize) {
+                LayoutParams.MATCH_PARENT -> {
+                    size = maxSize
+                    mode = MeasureSpec.EXACTLY
+                }
+                LayoutParams.WRAP_CONTENT -> {
+                    size = maxSize
+                    mode = MeasureSpec.AT_MOST
+                }
+                else -> {
+                    size = min(layoutParameterSize, maxSize)
+                    mode = MeasureSpec.EXACTLY
+                }
+            }
+            MeasureSpec.UNSPECIFIED -> when (layoutParameterSize) {
+                LayoutParams.MATCH_PARENT -> {
+                    size = maxSize
+                    mode = MeasureSpec.EXACTLY
+                }
+                LayoutParams.WRAP_CONTENT -> {
+                    size = maxSize
+                    mode = MeasureSpec.UNSPECIFIED
+                }
+                else -> {
+                    size = min(layoutParameterSize, maxSize)
+                    mode = MeasureSpec.AT_MOST
+                }
+            }
+            else -> when (layoutParameterSize) {
+                LayoutParams.MATCH_PARENT -> {
+                    size = maxSize
+                    mode = MeasureSpec.EXACTLY
+                }
+                LayoutParams.WRAP_CONTENT -> {
+                    size = maxSize
+                    mode = MeasureSpec.AT_MOST
+                }
+                else -> {
+                    size = min(layoutParameterSize, maxSize)
+                    mode = MeasureSpec.EXACTLY
+                }
+            }
+        }
+        return MeasureSpec.makeMeasureSpec(size, mode)
     }
 
     private fun calculateLayoutPosition(

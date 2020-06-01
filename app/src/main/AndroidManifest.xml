@@ -25,6 +25,7 @@
         <activity android:name=".AnimationShapeActivity" />
         <activity android:name=".ClickTargetActivity" />
         <activity android:name=".ViewGroupActivity" />
+        <activity android:name=".CoachViewActivity" />
     </application>
 
 </manifest>

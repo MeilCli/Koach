@@ -3,7 +3,6 @@ package net.meilcli.koach.layouts
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.Px
 import net.meilcli.koach.ICoachSceneLayout
@@ -23,11 +22,8 @@ class FrameCoachSceneLayout(
     }
 
     override fun addCoachView(view: View) {
-        val layoutParams = LayoutParams(
-            LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            gravity
-        ).apply {
+        val layoutParams = LayoutParams(view.layoutParams).apply {
+            gravity = this@FrameCoachSceneLayout.gravity
             topMargin = marginTop
             bottomMargin = marginBottom
             leftMargin = marginLeft
