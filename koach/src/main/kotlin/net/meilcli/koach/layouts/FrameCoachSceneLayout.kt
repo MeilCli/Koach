@@ -22,7 +22,12 @@ class FrameCoachSceneLayout(
     }
 
     override fun addCoachView(view: View) {
-        val layoutParams = LayoutParams(view.layoutParams).apply {
+        val layoutParams = LayoutParams(
+            view.layoutParams ?: LayoutParams(
+                LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT
+            )
+        ).apply {
             gravity = this@FrameCoachSceneLayout.gravity
             topMargin = marginTop
             bottomMargin = marginBottom
