@@ -75,22 +75,24 @@ class CoachOverlayView(
             lastTouchY = event.y
             false
         }
-        setOnClickListener {
-            val coachScene = coachScene ?: return@setOnClickListener
-            val lastTouchX = lastTouchX
-            val lastTouchY = lastTouchY
+        if (coach.overlay.canClickSurfaceView.not()) {
+            setOnClickListener {
+                val coachScene = coachScene ?: return@setOnClickListener
+                val lastTouchX = lastTouchX
+                val lastTouchY = lastTouchY
 
-            val clicked = if (coach.overlay.canClickTargetView &&
-                lastTouchX != null &&
-                lastTouchY != null &&
-                targetViewSpec.rect.contains(lastTouchX.toInt(), lastTouchY.toInt())
-            ) {
-                targetViewSpec.invokeClick(lastTouchX, lastTouchY)
-                IOverlayClickListener.Clicked.Target
-            } else {
-                IOverlayClickListener.Clicked.OutSide
+                val clicked = if (coach.overlay.canClickTargetView &&
+                    lastTouchX != null &&
+                    lastTouchY != null &&
+                    targetViewSpec.rect.contains(lastTouchX.toInt(), lastTouchY.toInt())
+                ) {
+                    targetViewSpec.invokeClick(lastTouchX, lastTouchY)
+                    IOverlayClickListener.Clicked.Target
+                } else {
+                    IOverlayClickListener.Clicked.OutSide
+                }
+                coach.overlay.clickListener.click(coach, coachScene, clicked)
             }
-            coach.overlay.clickListener.click(coach, coachScene, clicked)
         }
     }
 
