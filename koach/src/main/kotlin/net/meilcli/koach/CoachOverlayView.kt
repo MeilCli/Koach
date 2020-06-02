@@ -51,11 +51,13 @@ class CoachOverlayView(
         }
     }
 
-    private val overlayPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+    private val overlayPaint = Paint().apply {
         color = coach.overlay.color
+        isAntiAlias = true
     }
     private val transparentPaint = Paint().apply {
         color = Color.TRANSPARENT
+        isAntiAlias = true
         xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
     }
 
