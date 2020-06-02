@@ -2,5 +2,9 @@ package net.meilcli.koach
 
 interface IOverlayClickListener {
 
-    fun click(coach: Coach, currentScene: CoachScene)
+    enum class Clicked {
+        OutSide, Target
+    }
+
+    fun click(coach: Coach, currentScene: CoachScene, clicked: Clicked)
 }

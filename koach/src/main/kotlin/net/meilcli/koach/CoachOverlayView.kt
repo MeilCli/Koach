@@ -80,14 +80,17 @@ class CoachOverlayView(
             val lastTouchX = lastTouchX
             val lastTouchY = lastTouchY
 
-            if (coach.overlay.canClickTargetView &&
+            val clicked = if (coach.overlay.canClickTargetView &&
                 lastTouchX != null &&
                 lastTouchY != null &&
                 targetViewSpec.rect.contains(lastTouchX.toInt(), lastTouchY.toInt())
             ) {
                 targetViewSpec.invokeClick(lastTouchX, lastTouchY)
+                IOverlayClickListener.Clicked.Target
+            } else {
+                IOverlayClickListener.Clicked.OutSide
             }
-            coach.overlay.clickListener.click(coach, coachScene)
+            coach.overlay.clickListener.click(coach, coachScene, clicked)
         }
     }
 

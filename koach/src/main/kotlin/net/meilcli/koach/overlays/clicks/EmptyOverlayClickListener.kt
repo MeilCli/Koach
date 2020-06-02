@@ -6,5 +6,10 @@ import net.meilcli.koach.IOverlayClickListener
 
 object EmptyOverlayClickListener : IOverlayClickListener {
 
-    override fun click(coach: Coach, currentScene: CoachScene) {}
+    override fun click(
+        coach: Coach,
+        currentScene: CoachScene,
+        clicked: IOverlayClickListener.Clicked
+    ) {
+    }
 }
