@@ -4,6 +4,7 @@ import android.animation.TimeInterpolator
 import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.Px
+import net.meilcli.koach.IAnimation
 import net.meilcli.koach.IAnimationOverlayShape
 import net.meilcli.koach.ViewSpec
 
@@ -18,7 +19,7 @@ class EllipseAnimationOverlayShape(
     override val interpolator: TimeInterpolator,
     override val repeatCount: Int = 0,
     override val repeatMode: Int? = null,
-    override val animations: IAnimationOverlayShape.IAnimations = IAnimationOverlayShape.IAnimations.expand
+    override val animation: IAnimation = IAnimation.expand
 ) : IAnimationOverlayShape {
 
     enum class Direction {
@@ -33,7 +34,7 @@ class EllipseAnimationOverlayShape(
         interpolator: TimeInterpolator,
         repeatCount: Int = 0,
         repeatMode: Int? = null,
-        animations: IAnimationOverlayShape.IAnimations = IAnimationOverlayShape.IAnimations.expand
+        animation: IAnimation = IAnimation.expand
     ) : this(
         margin,
         margin,
@@ -45,7 +46,7 @@ class EllipseAnimationOverlayShape(
         interpolator,
         repeatCount,
         repeatMode,
-        animations
+        animation
     )
 
     override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec) {

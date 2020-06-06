@@ -4,6 +4,7 @@ import android.animation.TimeInterpolator
 import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.Px
+import net.meilcli.koach.IAnimation
 import net.meilcli.koach.IAnimationOverlayShape
 import net.meilcli.koach.ViewSpec
 
@@ -13,7 +14,7 @@ class PointerAnimationOverlayShape(
     override val interpolator: TimeInterpolator,
     override val repeatCount: Int = 0,
     override val repeatMode: Int? = null,
-    override val animations: IAnimationOverlayShape.IAnimations = IAnimationOverlayShape.IAnimations.contract
+    override val animation: IAnimation = IAnimation.contract
 ) : IAnimationOverlayShape {
 
     override fun draw(canvas: Canvas, paint: Paint, targetViewSpec: ViewSpec) {
