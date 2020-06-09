@@ -75,6 +75,9 @@ Coach.create(this, CoachOverlay()) {
 ### Sample
 see [app](app) module
 
+## Author
+[@MeilCli](https://github.com/MeilCli)
+
 ## License
 Koach is MIT License
 
