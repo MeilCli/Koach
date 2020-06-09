@@ -14,7 +14,7 @@ Koach can:
 
 ## Getting Started
 ### Install
-
+**The location will change in the near future**
 Koach is published on GitHub Packages and Bintray. So you choice maven repository.
 
 using Bintray:
@@ -31,7 +31,7 @@ using GitHub Packages:
 buildscript {
     repositories {
         maven {
-            url "https://maven.pkg.github.com/MeilCli/Koach"
+            url "https://maven.pkg.github.com/delyjp/Koach"
             credentials {
                 username System.getenv("GITHUB_USER")
                 password System.getenv("GITHUB_TOKEN") // token has permission of read:packages
