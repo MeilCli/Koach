@@ -14,7 +14,8 @@ Koach can:
 
 ## Getting Started
 ### Install
-**The location will change in the near future**
+**The location url will change in the near future**
+
 Koach is published on GitHub Packages and Bintray. So you choice maven repository.
 
 using Bintray:
