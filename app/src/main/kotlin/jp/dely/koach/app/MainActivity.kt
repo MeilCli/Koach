@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         anchor.setOnClickListener {
             startActivity(Intent(this, AnchorActivity::class.java))
         }
+        relative.setOnClickListener {
+            startActivity(Intent(this, RelativeActivity::class.java))
+        }
         animation.setOnClickListener {
             startActivity(Intent(this, AnimationActivity::class.java))
         }
