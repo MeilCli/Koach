@@ -1,7 +1,6 @@
 package jp.dely.koach
 
 import android.animation.TimeInterpolator
-import jp.dely.koach.IAnimation
 
 interface IAnimationProperty {
 

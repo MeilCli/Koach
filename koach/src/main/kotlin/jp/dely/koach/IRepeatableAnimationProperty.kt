@@ -1,7 +1,5 @@
 package jp.dely.koach
 
-import jp.dely.koach.IAnimationProperty
-
 interface IRepeatableAnimationProperty : IAnimationProperty {
 
     /**
