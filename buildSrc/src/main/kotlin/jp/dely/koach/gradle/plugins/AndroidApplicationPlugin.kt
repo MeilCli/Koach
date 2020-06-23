@@ -19,7 +19,7 @@ class AndroidApplicationPlugin : Plugin<Project> {
         extension.defaultConfig {
             minSdkVersion(15)
             targetSdkVersion(29)
-            applicationId = "net.meilcli.koach.app"
+            applicationId = "jp.dely.koach.app"
             versionCode = 1
             versionName = "1.0"
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

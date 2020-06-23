@@ -1,5 +1,5 @@
 # Librarian
-![CI](https://github.com/MeilCli/Koach/workflows/CI/badge.svg) [ ![Download](https://api.bintray.com/packages/meilcli/koach/koach/images/download.svg) ](https://bintray.com/meilcli/koach/koach/_latestVersion)
+![CI](https://github.com/delyjp/Koach/workflows/CI/badge.svg) [ ![Download](https://api.bintray.com/packages/dely/koach/koach/images/download.svg) ](https://bintray.com/dely/koach/koach/_latestVersion)
 
 Koach is Android Library of CoachMark such as Onboarding or ShowCase
 
@@ -14,7 +14,7 @@ Koach can:
 
 ## Getting Started
 ### Install
-**The location url will change in the near future**
+ToDo: not published
 
 Koach is published on GitHub Packages and Bintray. So you choice maven repository.
 
@@ -22,7 +22,7 @@ using Bintray:
 ```groovy
 buildscript {
     repositories {
-        maven { url "https://dl.bintray.com/meilcli/koach" }
+        maven { url "https://dl.bintray.com/dely/koach" }
     }
 }
 ```
@@ -45,7 +45,7 @@ buildscript {
 And set dependency:
 ```groovy
 dependencies {
-    implementation "net.meilcli.koach:koach:VERSION" // replace VERSION
+    implementation "jp.dely.koach:koach:VERSION" // replace VERSION
 }
 ```
 
