@@ -29,7 +29,7 @@ class MavenPublishPlugin : Plugin<Project> {
         extension.repositories {
             maven {
                 name = "GitHubPackages"
-                url = URI("https://maven.pkg.github.com/MeilCli/Koach")
+                url = URI("https://maven.pkg.github.com/delyjp/Koach")
 
                 credentials {
                     username = project.findProperty("gpr.user") as? String ?: System.getenv("GITHUB_USER")
@@ -42,21 +42,21 @@ class MavenPublishPlugin : Plugin<Project> {
             extension.publications {
                 // escape multiple attach Publication
                 val attach: (MavenPublication) -> Unit = {
-                    it.groupId = "net.meilcli.koach"
+                    it.groupId = "jp.dely.koach"
                     it.version = versionValue
 
                     it.pom {
                         name.set("Koach")
-                        url.set("https://github.com/MeilCli/Koach")
+                        url.set("https://github.com/delyjp/Koach")
                         licenses {
                             license {
                                 name.set("MIT License")
-                                url.set("https://github.com/MeilCli/Koach/blob/master/LICENSE")
+                                url.set("https://github.com/delyjp/Koach/blob/master/LICENSE")
                             }
                         }
                         developers {
                             developer {
-                                name.set("MeilCli")
+                                organization.set("dely, Inc.")
                             }
                         }
                     }
@@ -84,13 +84,13 @@ class MavenPublishPlugin : Plugin<Project> {
                 user = project.findProperty("bintray.user") as? String ?: System.getenv("BINTRAY_USER")
                 key = project.findProperty("bintray.token") as? String ?: System.getenv("BINTRAY_TOKEN")
                 pkg.apply {
-                    userOrg = "meilcli"
+                    userOrg = "dely"
                     repo = "koach"
                     name = project.name
                     setLicenses("MIT")
-                    githubRepo = "MeilCli/Koach"
-                    websiteUrl = "https://github.com/MeilCli/Koach"
-                    vcsUrl = "https://github.com/MeilCli/Koach.git"
+                    githubRepo = "delyjp/Koach"
+                    websiteUrl = "https://github.com/delyjp/Koach"
+                    vcsUrl = "https://github.com/delyjp/Koach.git"
 
                     version.name = versionValue
                 }
