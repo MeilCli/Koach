@@ -1,4 +1,4 @@
-package net.meilcli.koach.gradle.plugins
+package jp.dely.koach.gradle.plugins
 
 import com.android.build.gradle.LibraryPlugin
 import com.jfrog.bintray.gradle.BintrayExtension

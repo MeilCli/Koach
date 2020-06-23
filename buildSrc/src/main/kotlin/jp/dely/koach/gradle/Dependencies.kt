@@ -1,4 +1,4 @@
-package net.meilcli.koach.gradle
+package jp.dely.koach.gradle
 
 object Dependencies {
 

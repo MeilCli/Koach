@@ -1,6 +1,6 @@
-package net.meilcli.koach.gradle.extensions
+package jp.dely.koach.gradle.extensions
 
-import net.meilcli.koach.gradle.Dependency
+import jp.dely.koach.gradle.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.create
 

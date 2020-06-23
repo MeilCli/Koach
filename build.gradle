@@ -1,4 +1,4 @@
-import net.meilcli.koach.gradle.Dependencies
+import jp.dely.koach.gradle.Dependencies
 
 buildscript {
     repositories {

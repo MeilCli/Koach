@@ -1,16 +1,16 @@
-package net.meilcli.koach.gradle.plugins
+package jp.dely.koach.gradle.plugins
 
 import com.android.build.gradle.BaseExtension
-import com.android.build.gradle.ProguardFiles
-import net.meilcli.koach.gradle.Dependencies
-import net.meilcli.koach.gradle.extensions.androidTestImplementation
-import net.meilcli.koach.gradle.extensions.implementation
-import net.meilcli.koach.gradle.extensions.testImplementation
+import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
+import jp.dely.koach.gradle.Dependencies
+import jp.dely.koach.gradle.extensions.androidTestImplementation
+import jp.dely.koach.gradle.extensions.implementation
+import jp.dely.koach.gradle.extensions.testImplementation
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
-class AndroidApplicationPlugin : Plugin<Project> {
+class AndroidLibraryPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
         val extension = project.extensions.findByName("android") as BaseExtension
@@ -19,17 +19,17 @@ class AndroidApplicationPlugin : Plugin<Project> {
         extension.defaultConfig {
             minSdkVersion(15)
             targetSdkVersion(29)
-            applicationId = "net.meilcli.koach.app"
             versionCode = 1
             versionName = "1.0"
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+            consumerProguardFile("consumer-rules.pro")
         }
 
         (extension.buildTypes.findByName("release")
             ?: extension.buildTypes.create("release")).apply {
             isMinifyEnabled = false
             proguardFiles(
-                ProguardFiles.getDefaultProguardFile("proguard-android-optimize.txt", project),
+                getDefaultProguardFile("proguard-android-optimize.txt", project),
                 "proguard-rules.pro"
             )
         }
