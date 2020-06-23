@@ -7,7 +7,7 @@ The details are refactored after being merged so you don't have to worry.
 ### Kotlin
 - interface name must prefixed `I`
 - constant name must be lowerCamelCase
-- enum entry name must be lowerCamelCase
+- enum entry name must be UpperCamelCase
 - if you write complexity code, you good write test code
 
 ### Android
