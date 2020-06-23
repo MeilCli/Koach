@@ -18,36 +18,44 @@ class CoachOverlayView(
         private val coachScene: CoachScene
     ) : Animator.AnimatorListener {
 
-        override fun onAnimationRepeat(animation: Animator?) {
-            coach.overlay.animatedListener.animationEvent(
+        private fun CoachOverlay.raiseEvent(event: IOverlayAnimatedListener.Event) {
+            animatedListener.animationEvent(
                 coach,
                 coachScene,
-                IOverlayAnimatedListener.Event.Repeat
+                event
             )
+        }
+
+        override fun onAnimationRepeat(animation: Animator?) {
+            coachScene.coachOverlay?.run {
+                raiseEvent(IOverlayAnimatedListener.Event.Repeat)
+                return
+            }
+            coach.overlay.raiseEvent(IOverlayAnimatedListener.Event.Repeat)
         }
 
         override fun onAnimationEnd(animation: Animator?) {
-            coach.overlay.animatedListener.animationEvent(
-                coach,
-                coachScene,
-                IOverlayAnimatedListener.Event.End
-            )
+            coachScene.coachOverlay?.run {
+                raiseEvent(IOverlayAnimatedListener.Event.End)
+                return
+            }
+            coach.overlay.raiseEvent(IOverlayAnimatedListener.Event.End)
         }
 
         override fun onAnimationCancel(animation: Animator?) {
-            coach.overlay.animatedListener.animationEvent(
-                coach,
-                coachScene,
-                IOverlayAnimatedListener.Event.Cancel
-            )
+            coachScene.coachOverlay?.run {
+                raiseEvent(IOverlayAnimatedListener.Event.Cancel)
+                return
+            }
+            coach.overlay.raiseEvent(IOverlayAnimatedListener.Event.Cancel)
         }
 
         override fun onAnimationStart(animation: Animator?) {
-            coach.overlay.animatedListener.animationEvent(
-                coach,
-                coachScene,
-                IOverlayAnimatedListener.Event.Start
-            )
+            coachScene.coachOverlay?.run {
+                raiseEvent(IOverlayAnimatedListener.Event.Start)
+                return
+            }
+            coach.overlay.raiseEvent(IOverlayAnimatedListener.Event.Start)
         }
     }
 
@@ -65,8 +73,7 @@ class CoachOverlayView(
     private var lastTouchY: Float? = null
 
     private var coachScene: CoachScene? = null
-    private var targetViewSpec: ViewSpec =
-        ViewSpec.empty
+    private var targetViewSpec: ViewSpec = ViewSpec.empty
     private var shapeAnimator: ValueAnimator? = null
 
     init {
@@ -76,7 +83,11 @@ class CoachOverlayView(
             lastTouchY = event.y
             false
         }
-        if (coach.overlay.canClickSurfaceView.not()) {
+        setClickListener(coach.overlay)
+    }
+
+    private fun setClickListener(overlay: CoachOverlay) {
+        if (overlay.canClickSurfaceView.not()) {
             setOnClickListener {
                 val coachScene = coachScene ?: return@setOnClickListener
                 val lastTouchX = lastTouchX
@@ -92,8 +103,11 @@ class CoachOverlayView(
                 } else {
                     IOverlayClickListener.Clicked.OutSide
                 }
-                coach.overlay.clickListener.click(coach, coachScene, clicked)
+                overlay.clickListener.click(coach, coachScene, clicked)
             }
+        } else {
+            setOnClickListener(null)
+            isClickable = false
         }
     }
 
@@ -102,6 +116,9 @@ class CoachOverlayView(
         this.targetViewSpec = targetViewSpec
 
         shapeAnimator?.cancel()
+
+        overlayPaint.color = coachScene.coachOverlay?.color ?: coach.overlay.color
+        setClickListener(coachScene.coachOverlay ?: coach.overlay)
 
         val overlayShape = coachScene.overlayShape
         if (overlayShape is IAnimationOverlayShape) {
