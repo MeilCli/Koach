@@ -1,0 +1,3 @@
+package jp.dely.koach
+
+interface IRepeatableCoachSceneAnimator : ICoachSceneAnimator, IRepeatableAnimationProperty

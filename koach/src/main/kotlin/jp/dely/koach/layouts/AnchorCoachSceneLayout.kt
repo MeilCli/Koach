@@ -29,8 +29,12 @@ class AnchorCoachSceneLayout(
         private const val defaultGravity = Gravity.TOP or Gravity.LEFT
     }
 
+    override var coachView: View? = null
+        private set
+
     override fun addCoachView(view: View) {
         addView(view)
+        coachView = view
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

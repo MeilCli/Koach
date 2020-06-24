@@ -24,8 +24,12 @@ class RelativeCoachSceneLayout(
     private val marginRight: Int
 ) : ViewGroup(context), ICoachSceneLayout {
 
+    override var coachView: View? = null
+        private set
+
     override fun addCoachView(view: View) {
         addView(view)
+        coachView = view
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

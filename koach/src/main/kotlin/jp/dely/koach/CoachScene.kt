@@ -8,7 +8,8 @@ class CoachScene(
     val overlayShape: IOverlayShape,
     val targetViewFinder: IViewFinder,
     val coachSceneUis: List<CoachSceneUi>,
-    val coachOverlay: CoachOverlay? = null
+    val coachOverlay: CoachOverlay? = null,
+    val coachSceneAnimation: CoachSceneAnimation? = null
 ) {
     constructor(
         id: String,
@@ -16,7 +17,8 @@ class CoachScene(
         targetViewFinder: IViewFinder,
         coachViewProvider: IViewProvider,
         coachLayoutProvider: ICoachSceneLayoutProvider,
-        coachOverlay: CoachOverlay? = null
+        coachOverlay: CoachOverlay? = null,
+        coachSceneAnimation: CoachSceneAnimation? = null
     ) : this(
         id,
         overlayShape,
@@ -27,6 +29,7 @@ class CoachScene(
                 coachLayoutProvider
             )
         ),
-        coachOverlay
+        coachOverlay,
+        coachSceneAnimation
     )
 }

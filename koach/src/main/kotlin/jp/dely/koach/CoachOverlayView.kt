@@ -59,7 +59,7 @@ class CoachOverlayView(
         }
     }
 
-    private val overlayPaint = Paint().apply {
+    internal val overlayPaint = Paint().apply {
         color = coach.overlay.color
         isAntiAlias = true
     }

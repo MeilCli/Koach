@@ -21,6 +21,9 @@ class FrameCoachSceneLayout(
         fitsSystemWindows = true
     }
 
+    override var coachView: View? = null
+        private set
+
     override fun addCoachView(view: View) {
         val layoutParams = LayoutParams(
             view.layoutParams ?: LayoutParams(
@@ -35,5 +38,6 @@ class FrameCoachSceneLayout(
             rightMargin = marginRight
         }
         addView(view, layoutParams)
+        coachView = view
     }
 }

@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         animationShape.setOnClickListener {
             startActivity(Intent(this, AnimationShapeActivity::class.java))
         }
+        animationScene.setOnClickListener {
+            startActivity(Intent(this, AnimationSceneActivity::class.java))
+        }
         clickTarget.setOnClickListener {
             startActivity(Intent(this, ClickTargetActivity::class.java))
         }
