@@ -18,7 +18,7 @@ class CoachOverlayView(
         private val coachScene: CoachScene
     ) : Animator.AnimatorListener {
 
-        private fun CoachOverlay.raiseEvent(event: IOverlayAnimatedListener.Event) {
+        private fun CoachOverlay.raiseEvent(event: AnimatedEvent) {
             animatedListener.animationEvent(
                 coach,
                 coachScene,
@@ -28,34 +28,34 @@ class CoachOverlayView(
 
         override fun onAnimationRepeat(animation: Animator?) {
             coachScene.coachOverlay?.run {
-                raiseEvent(IOverlayAnimatedListener.Event.Repeat)
+                raiseEvent(AnimatedEvent.Repeat)
                 return
             }
-            coach.overlay.raiseEvent(IOverlayAnimatedListener.Event.Repeat)
+            coach.overlay.raiseEvent(AnimatedEvent.Repeat)
         }
 
         override fun onAnimationEnd(animation: Animator?) {
             coachScene.coachOverlay?.run {
-                raiseEvent(IOverlayAnimatedListener.Event.End)
+                raiseEvent(AnimatedEvent.End)
                 return
             }
-            coach.overlay.raiseEvent(IOverlayAnimatedListener.Event.End)
+            coach.overlay.raiseEvent(AnimatedEvent.End)
         }
 
         override fun onAnimationCancel(animation: Animator?) {
             coachScene.coachOverlay?.run {
-                raiseEvent(IOverlayAnimatedListener.Event.Cancel)
+                raiseEvent(AnimatedEvent.Cancel)
                 return
             }
-            coach.overlay.raiseEvent(IOverlayAnimatedListener.Event.Cancel)
+            coach.overlay.raiseEvent(AnimatedEvent.Cancel)
         }
 
         override fun onAnimationStart(animation: Animator?) {
             coachScene.coachOverlay?.run {
-                raiseEvent(IOverlayAnimatedListener.Event.Start)
+                raiseEvent(AnimatedEvent.Start)
                 return
             }
-            coach.overlay.raiseEvent(IOverlayAnimatedListener.Event.Start)
+            coach.overlay.raiseEvent(AnimatedEvent.Start)
         }
     }
 

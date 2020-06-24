@@ -1,18 +1,18 @@
 package jp.dely.koach.overlays.animates
 
+import jp.dely.koach.AnimatedEvent
 import jp.dely.koach.Coach
 import jp.dely.koach.CoachScene
 import jp.dely.koach.IOverlayAnimatedListener
 
-object HideOnEndOverlayAnimatedListener :
-    IOverlayAnimatedListener {
+object HideOnEndOverlayAnimatedListener : IOverlayAnimatedListener {
 
     override fun animationEvent(
         coach: Coach,
         currentScene: CoachScene,
-        event: IOverlayAnimatedListener.Event
+        event: AnimatedEvent
     ) {
-        if (event == IOverlayAnimatedListener.Event.End) {
+        if (event == AnimatedEvent.End) {
             coach.hide()
         }
     }
