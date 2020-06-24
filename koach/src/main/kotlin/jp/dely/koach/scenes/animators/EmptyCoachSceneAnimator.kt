@@ -11,9 +11,9 @@ class EmptyCoachSceneAnimator(
 ) : ICoachSceneAnimator, IRepeatableCoachSceneAnimator {
 
     override val interpolator: TimeInterpolator = AccelerateInterpolator()
-    override val animation: IAnimation = IAnimation.none
+    override val animation: IAnimation = Animation.none
     override val repeatCount = 0
-    override val repeatMode = null
+    override val repeatMode: Int? = null
 
     override fun updateView(
         coach: Coach,

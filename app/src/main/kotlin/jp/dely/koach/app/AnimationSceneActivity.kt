@@ -48,7 +48,7 @@ class AnimationSceneActivity : AppCompatActivity() {
                 startAnimator = FadeCoachSceneAnimator(
                     duration = 500,
                     interpolator = AccelerateInterpolator(),
-                    animation = IAnimation.fadeIn
+                    animation = Animation.fadeIn
                 )
             )
         )
@@ -75,7 +75,7 @@ class AnimationSceneActivity : AppCompatActivity() {
                 startAnimator = FadeCoachSceneAnimator(
                     duration = 500,
                     interpolator = AccelerateInterpolator(),
-                    animation = IAnimation.fadeIn
+                    animation = Animation.fadeIn
                 ),
                 centerAnimator = EmptyCoachSceneAnimator(
                     duration = 2000
@@ -83,7 +83,7 @@ class AnimationSceneActivity : AppCompatActivity() {
                 endAnimator = FadeCoachSceneAnimator(
                     duration = 500,
                     interpolator = AccelerateInterpolator(),
-                    animation = IAnimation.fadeOut
+                    animation = Animation.fadeOut
                 ),
                 listener = NextSceneOnEndCoachSceneAnimatedListener
             )

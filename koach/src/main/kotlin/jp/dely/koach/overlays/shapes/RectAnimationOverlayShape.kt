@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
 import androidx.annotation.Px
+import jp.dely.koach.Animation
 import jp.dely.koach.IAnimation
 import jp.dely.koach.IAnimationOverlayShape
 import jp.dely.koach.ViewSpec
@@ -20,7 +21,7 @@ class RectAnimationOverlayShape(
     override val interpolator: TimeInterpolator,
     override val repeatCount: Int = 0,
     override val repeatMode: Int? = null,
-    override val animation: IAnimation = IAnimation.expand
+    override val animation: IAnimation = Animation.expand
 ) : IAnimationOverlayShape {
 
     constructor(
@@ -31,7 +32,7 @@ class RectAnimationOverlayShape(
         interpolator: TimeInterpolator,
         repeatCount: Int = 0,
         repeatMode: Int? = null,
-        animation: IAnimation = IAnimation.expand
+        animation: IAnimation = Animation.expand
     ) : this(
         margin,
         margin,
