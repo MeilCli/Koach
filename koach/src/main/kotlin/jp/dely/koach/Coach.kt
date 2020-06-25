@@ -1,13 +1,11 @@
 package jp.dely.koach
 
 import android.app.Activity
-import android.graphics.Color
 import android.os.Build
 import android.util.TypedValue
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.view.Window
-import androidx.annotation.ColorInt
 
 /**
  * [viewGroup] should be layout that stacks like layers, such as FrameLayout
@@ -54,9 +52,6 @@ class Coach(
 
     companion object {
 
-        @ColorInt
-        private val defaultOverlayColor = Color.parseColor("#D0000000")
-
         /**
          * [viewGroup] should be layout that stacks like layers, such as FrameLayout
          */
@@ -95,8 +90,7 @@ class Coach(
         }
     }
 
-    private val coachLayout =
-        CoachLayout(viewGroup.context, this)
+    private val coachLayout = CoachLayout(viewGroup.context, this)
     private var isShown = false
     private var currentSceneIndex = 0
 
