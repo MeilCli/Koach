@@ -1,9 +1,14 @@
-import jp.dely.koach.gradle.Dependencies
+import jp.dely.koach.gradle.dependencies.Android
+import jp.dely.koach.gradle.dependencies.Gmazzo
+import jp.dely.koach.gradle.dependencies.Kotlin
+import jp.dely.koach.gradle.dependencies.Librarian
+import jp.dely.koach.gradle.dependencies.Repositories
 
 buildscript {
     repositories {
         google()
         jcenter()
+        maven { url Repositories.gradle }
         def githubUser = System.getenv("GITHUB_USER")
         def githubToken = System.getenv("GITHUB_TOKEN")
         if (githubUser != null && githubToken != null) {
@@ -15,14 +20,15 @@ buildscript {
                 }
             }
         } else {
-            maven { url "https://dl.bintray.com/meilcli/librarian" }
+            maven { url Repositories.librarian }
         }
     }
     dependencies {
-        classpath Dependencies.Android.gradle
-        classpath Dependencies.Kotlin.gradle
-        classpath Dependencies.Librarian.pluginCore
-        classpath Dependencies.Librarian.pluginPreset
+        classpath Android.gradle
+        classpath Kotlin.gradle
+        classpath Librarian.pluginCore
+        classpath Librarian.pluginPreset
+        classpath Gmazzo.gradleBuildConfigPlugin
     }
 }
 
@@ -30,6 +36,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url Repositories.gradle }
         def githubUser = System.getenv("GITHUB_USER")
         def githubToken = System.getenv("GITHUB_TOKEN")
         if (githubUser != null && githubToken != null) {
@@ -41,7 +48,7 @@ allprojects {
                 }
             }
         } else {
-            maven { url "https://dl.bintray.com/meilcli/librarian" }
+            maven { url Repositories.librarian }
         }
     }
 }

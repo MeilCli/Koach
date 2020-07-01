@@ -1,0 +1,90 @@
+apply plugin: "com.github.gmazzo.buildconfig"
+
+buildConfig {
+    packageName("jp.dely.koach.gradle.dependencies")
+    className("Dependencies")
+}
+
+ext {
+    configUrl = ""
+    configName = ""
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+void repositories(Closure closure) {
+    closure()
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+void maven(Closure closure) {
+    closure()
+    buildConfig.forClass("Repositories") {
+        buildConfigField("String", configName, "\"$configUrl\"")
+    }
+    ext.set("repository_$configName", configUrl)
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+void url(String url) {
+    ext.configUrl = url
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+void name(String name) {
+    ext.configName = name
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+void dependencies(Closure closure) {
+    closure()
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+void library(String notice, String name, String className) {
+    buildConfig.forClass(className) {
+        buildConfigField("String", name, "\"$notice\"")
+    }
+    ext.set("library_${className}_${name}", notice)
+}
+
+repositories {
+    maven {
+        url "https://maven.google.com/"
+        name "google"
+    }
+    maven {
+        url "https://jcenter.bintray.com/"
+        name "jcenter"
+    }
+    maven {
+        url "https://plugins.gradle.org/m2/"
+        name "gradle"
+    }
+    maven {
+        url "https://dl.bintray.com/meilcli/librarian"
+        name "librarian"
+    }
+}
+
+dependencies {
+    ext.kotlinGroup = "org.jetbrains.kotlin"
+    ext.kotlinVersion = "1.3.72"
+    library "$kotlinGroup:kotlin-gradle-plugin:$kotlinVersion", "gradle", "Kotlin"
+    library "$kotlinGroup:kotlin-stdlib-jdk7:$kotlinVersion", "stdlib", "Kotlin"
+
+    library "com.android.tools.build:gradle:4.0.0", "gradle", "Android"
+    library "androidx.appcompat:appcompat:1.1.0", "appCompat", "Android"
+    library "androidx.test.ext:junit:1.1.1", "junit", "Android"
+    library "androidx.test.espresso:espresso-core:3.2.0", "espresso", "Android"
+
+    ext.librarianGroup = "net.meilcli.librarian"
+    ext.librarianVersion = "1.0.0"
+    library "$librarianGroup:plugin-core:$librarianVersion", "pluginCore", "Librarian"
+    library "$librarianGroup:plugin-preset:$librarianVersion", "pluginPreset", "Librarian"
+
+    library "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5", "plugin", "Bintray"
+
+    library "junit:junit:4.13", "junit", "Junit4"
+
+    library "com.github.gmazzo:gradle-buildconfig-plugin:2.0.1", "gradleBuildConfigPlugin", "Gmazzo"
+}

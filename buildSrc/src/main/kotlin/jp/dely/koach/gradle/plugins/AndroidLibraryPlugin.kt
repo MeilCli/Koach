@@ -2,10 +2,12 @@ package jp.dely.koach.gradle.plugins
 
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
-import jp.dely.koach.gradle.Dependencies
 import jp.dely.koach.gradle.extensions.androidTestImplementation
 import jp.dely.koach.gradle.extensions.implementation
 import jp.dely.koach.gradle.extensions.testImplementation
+import jp.dely.koach.gradle.dependencies.Android
+import jp.dely.koach.gradle.dependencies.Junit4
+import jp.dely.koach.gradle.dependencies.Kotlin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
@@ -29,7 +31,7 @@ class AndroidLibraryPlugin : Plugin<Project> {
             ?: extension.buildTypes.create("release")).apply {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt", project),
+                getDefaultProguardFile("proguard-android-optimize.txt", project.layout),
                 "proguard-rules.pro"
             )
         }
@@ -39,13 +41,13 @@ class AndroidLibraryPlugin : Plugin<Project> {
         }
 
         project.dependencies {
-            implementation(Dependencies.Kotlin.stdlib)
-            implementation(Dependencies.Android.appCompat)
+            implementation(Kotlin.stdlib)
+            implementation(Android.appCompat)
 
-            testImplementation(Dependencies.Junit4.junit)
+            testImplementation(Junit4.junit)
 
-            androidTestImplementation(Dependencies.Android.espresso)
-            androidTestImplementation(Dependencies.Android.junit)
+            androidTestImplementation(Android.espresso)
+            androidTestImplementation(Android.junit)
         }
     }
 }

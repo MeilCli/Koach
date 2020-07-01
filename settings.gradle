@@ -1,3 +1,4 @@
 rootProject.name='Koach'
 include ':app'
 include ':koach'
+include ':dependencies'
