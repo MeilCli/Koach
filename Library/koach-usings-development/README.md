@@ -4,8 +4,11 @@
 This list is using development of Koach
 
 ## Using
-- [AndroidX Test Library](https://developer.android.com/testing), licensed on [The Apache Software License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt), made by The Android Open Source Project
-- [Gradle Plug-in for Android](https://developer.android.com/studio), licensed on [The Apache Software License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt), made by The Android Open Source Project
-- [JUnit](http://junit.org), licensed on [Eclipse Public License 1.0](http://www.eclipse.org/legal/epl-v10.html), made by JUnit Team
-- [Kotlin](https://kotlinlang.org/), licensed on [The Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt), made by JetBrains - Kotlin Team
-- [Librarian](https://github.com/MeilCli/Librarian), licensed on [MIT License](https://github.com/MeilCli/Librarian/blob/master/LICENSE), made by MeilCli
+|Name|author|license|
+|:--|:--|:--|
+|[AndroidX Test Library](https://developer.android.com/testing)|The Android Open Source Project|[The Apache Software License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt)|
+|[Gradle Plug-in for Android](https://developer.android.com/studio)|The Android Open Source Project|[The Apache Software License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt)|
+|[JUnit](http://junit.org)|JUnit Team|[Eclipse Public License 1.0](http://www.eclipse.org/legal/epl-v10.html)|
+|[Kotlin](https://kotlinlang.org/)|JetBrains - Kotlin Team|[The Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.txt)|
+|[Librarian](https://github.com/MeilCli/Librarian)|MeilCli|[MIT License](https://github.com/MeilCli/Librarian/blob/master/LICENSE)|
+|[gradle-buildconfig-plugin](https://github.com/gmazzo/gradle-buildconfig-plugin)|Guillermo Mazzola|[MIT License](https://github.com/gmazzo/gradle-buildconfig-plugin/blob/master/LICENSE)|
