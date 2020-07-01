@@ -3,32 +3,40 @@
     "description": "This list is including library binary",
     "notices": [
         {
-            "artifacts": [
-                "androidx.appcompat:appcompat"
-            ],
             "name": "Android Jetpack",
             "author": "The Android Open Source Project",
             "url": "https://developer.android.com/jetpack/androidx",
             "description": null,
-            "licenses": [
+            "resources": [
                 {
-                    "name": "The Apache Software License, Version 2.0",
-                    "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    "artifacts": [
+                        "androidx.appcompat:appcompat"
+                    ],
+                    "licenses": [
+                        {
+                            "name": "The Apache Software License, Version 2.0",
+                            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "artifacts": [
-                "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
-            ],
             "name": "Kotlin",
             "author": "JetBrains - Kotlin Team",
             "url": "https://kotlinlang.org/",
             "description": null,
-            "licenses": [
+            "resources": [
                 {
-                    "name": "The Apache License, Version 2.0",
-                    "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    "artifacts": [
+                        "org.jetbrains.kotlin:kotlin-stdlib-jdk7"
+                    ],
+                    "licenses": [
+                        {
+                            "name": "The Apache License, Version 2.0",
+                            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    ]
                 }
             ]
         }

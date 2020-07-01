@@ -3,79 +3,118 @@
     "description": "This list is using development of Koach",
     "notices": [
         {
-            "artifacts": [
-                "androidx.test.espresso:espresso-core",
-                "androidx.test.ext:junit"
-            ],
             "name": "AndroidX Test Library",
             "author": "The Android Open Source Project",
             "url": "https://developer.android.com/testing",
             "description": null,
-            "licenses": [
+            "resources": [
                 {
-                    "name": "The Apache Software License, Version 2.0",
-                    "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    "artifacts": [
+                        "androidx.test.espresso:espresso-core",
+                        "androidx.test.ext:junit"
+                    ],
+                    "licenses": [
+                        {
+                            "name": "The Apache Software License, Version 2.0",
+                            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "artifacts": [
-                "com.android.tools.build:gradle"
-            ],
             "name": "Gradle Plug-in for Android",
             "author": "The Android Open Source Project",
             "url": "https://developer.android.com/studio",
             "description": "Gradle plug-in to build Android applications.",
-            "licenses": [
+            "resources": [
                 {
-                    "name": "The Apache Software License, Version 2.0",
-                    "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    "artifacts": [
+                        "com.android.tools.build:gradle"
+                    ],
+                    "licenses": [
+                        {
+                            "name": "The Apache Software License, Version 2.0",
+                            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "artifacts": [
-                "junit:junit"
-            ],
             "name": "JUnit",
             "author": "JUnit Team",
             "url": "http://junit.org",
             "description": null,
-            "licenses": [
+            "resources": [
                 {
-                    "name": "Eclipse Public License 1.0",
-                    "url": "http://www.eclipse.org/legal/epl-v10.html"
+                    "artifacts": [
+                        "junit:junit"
+                    ],
+                    "licenses": [
+                        {
+                            "name": "Eclipse Public License 1.0",
+                            "url": "http://www.eclipse.org/legal/epl-v10.html"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "artifacts": [
-                "org.jetbrains.kotlin:kotlin-gradle-plugin"
-            ],
             "name": "Kotlin",
             "author": "JetBrains - Kotlin Team",
             "url": "https://kotlinlang.org/",
             "description": null,
-            "licenses": [
+            "resources": [
                 {
-                    "name": "The Apache License, Version 2.0",
-                    "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    "artifacts": [
+                        "org.jetbrains.kotlin:kotlin-gradle-plugin"
+                    ],
+                    "licenses": [
+                        {
+                            "name": "The Apache License, Version 2.0",
+                            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "artifacts": [
-                "net.meilcli.librarian:plugin-core",
-                "net.meilcli.librarian:plugin-preset"
-            ],
             "name": "Librarian",
             "author": "MeilCli",
             "url": "https://github.com/MeilCli/Librarian",
             "description": null,
-            "licenses": [
+            "resources": [
                 {
-                    "name": "MIT License",
-                    "url": "https://github.com/MeilCli/Librarian/blob/master/LICENSE"
+                    "artifacts": [
+                        "net.meilcli.librarian:plugin-core",
+                        "net.meilcli.librarian:plugin-preset"
+                    ],
+                    "licenses": [
+                        {
+                            "name": "MIT License",
+                            "url": "https://github.com/MeilCli/Librarian/blob/master/LICENSE"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "gradle-buildconfig-plugin",
+            "author": "Guillermo Mazzola",
+            "url": "https://github.com/gmazzo/gradle-buildconfig-plugin",
+            "description": null,
+            "resources": [
+                {
+                    "artifacts": [
+                        "com.github.gmazzo:gradle-buildconfig-plugin"
+                    ],
+                    "licenses": [
+                        {
+                            "name": "MIT License",
+                            "url": "https://github.com/gmazzo/gradle-buildconfig-plugin/blob/master/LICENSE"
+                        }
+                    ]
                 }
             ]
         }
