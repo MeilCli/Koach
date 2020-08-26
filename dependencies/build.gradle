@@ -75,7 +75,7 @@ dependencies {
     library "com.android.tools.build:gradle:4.0.0", "gradle", "Android"
     library "androidx.appcompat:appcompat:1.1.0", "appCompat", "Android"
     library "androidx.test.ext:junit:1.1.1", "junit", "Android"
-    library "androidx.test.espresso:espresso-core:3.2.0", "espresso", "Android"
+    library "androidx.test.espresso:espresso-core:3.3.0", "espresso", "Android"
 
     ext.librarianGroup = "net.meilcli.librarian"
     ext.librarianVersion = "1.0.1"
