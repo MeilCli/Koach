@@ -84,7 +84,7 @@ dependencies {
 
     library "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5", "plugin", "Bintray"
 
-    library "junit:junit:4.13", "junit", "Junit4"
+    library "junit:junit:4.13.1", "junit", "Junit4"
 
     library "com.github.gmazzo:gradle-buildconfig-plugin:2.0.1", "gradleBuildConfigPlugin", "Gmazzo"
 }
