@@ -86,5 +86,5 @@ dependencies {
 
     library "junit:junit:4.13", "junit", "Junit4"
 
-    library "com.github.gmazzo:gradle-buildconfig-plugin:2.0.1", "gradleBuildConfigPlugin", "Gmazzo"
+    library "com.github.gmazzo:gradle-buildconfig-plugin:3.0.2", "gradleBuildConfigPlugin", "Gmazzo"
 }
